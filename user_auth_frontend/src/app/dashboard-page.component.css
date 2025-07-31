@@ -37,15 +37,43 @@
 .dashboard-stat-section {
   width: 100%;
   margin-bottom: 32px;
+  background: transparent;
+  z-index: 3;
+  position: relative;
+  /* For dark theme layout separation */
+  box-shadow: 0 6px 18px -12px #11182975;
+  border-radius: 0 0 18px 18px;
+  padding-bottom: 6px;
+  overflow-x: auto;
+}
+
+@media (max-width: 750px) {
+  .dashboard-stat-section {
+    box-shadow: none;
+    margin-bottom: 18px;
+    padding-bottom: 0;
+  }
 }
 
 /* Stat cards horizontal grid */
 .dashboard-stat-card-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 26px;
+  justify-content: space-between;
   align-items: stretch;
+  width: 100%;
+  margin-bottom: 0;
+  min-height: 164px;
+}
+
+@media (max-width: 1040px) {
+  .dashboard-stat-card-list {
+    flex-wrap: wrap;
+    gap: 18px;
+    min-height: unset;
+  }
 }
 
 .dashboard-widgets-row {

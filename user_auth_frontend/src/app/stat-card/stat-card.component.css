@@ -10,11 +10,13 @@
   height: 148px;
   background: var(--color-card, #232b36);
   border-radius: 14px;
-  box-shadow: var(--color-shadow, 0 4px 14px 0 #080e1775), 0 2.5px 6px #1a2837;
+  box-shadow: var(--color-shadow, 0 4px 17px 0 #10162a60), 0 2.5px 6px #1a2837;
+  border: 1.7px solid #26304228;
   padding: 20px 18px 18px 18px;
-  margin: 6px;
-  transition: box-shadow 0.17s, background 0.16s;
+  margin: 0;
+  transition: box-shadow 0.19s, background 0.16s, border 0.15s;
   user-select: none;
+  overflow: visible;
 }
 
 .stat-card-root:focus,
@@ -69,12 +71,22 @@
   margin-top: 0px;
 }
 
+@media (max-width: 900px) {
+  .stat-card-root {
+    width: 30vw;
+    min-width: 120px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 92%;
+  }
+}
+
 @media (max-width: 540px) {
   .stat-card-root {
     min-width: 110px;
     width: 99vw;
     height: auto;
-    padding: 14px 6vw 12px 6vw;
+    padding: 14px 3vw 12px 3vw;
   }
   .stat-card-value {
     font-size: 1.4rem;
