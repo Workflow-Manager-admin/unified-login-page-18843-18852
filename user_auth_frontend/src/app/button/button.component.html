@@ -1,0 +1,9 @@
+<button
+  type="button"
+  [ngClass]="btnClass"
+  [disabled]="disabled"
+  (click)="handleClick($event)"
+>
+  <span *ngIf="icon" class="btn-icon" [ngClass]="icon" aria-hidden="true"></span>
+  {{ text }}
+</button>

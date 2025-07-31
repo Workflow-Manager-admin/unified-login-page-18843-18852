@@ -1,0 +1,65 @@
+/* Button base: follows Figma tokens (see: assets/dashboard-login.css) */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--btn-height, 45px);
+  border: none;
+  border-radius: var(--border-radius, 4px);
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-size: var(--font-size-button, 16px);
+  font-weight: var(--font-weight-button, 600);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: var(--box-shadow, 0 4px 4px 0px #00000022);
+  outline: none;
+  margin: 0;
+  padding: 0 1.6em;
+  gap: 10px;
+  user-select: none;
+}
+
+/* Color themes — from Figma tokens/dashboard-login.css */
+.btn-primary {
+  background: var(--color-white, #fff);
+  color: var(--color-primary, #2148c0);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-accent, #d7e0fb);
+}
+
+.btn-accent {
+  background: var(--color-accent, #d7e0fb);
+  color: var(--color-primary, #2148c0);
+}
+.btn-accent:hover:not(:disabled) {
+  background: var(--color-white, #fff);
+}
+
+.btn-secondary {
+  background: var(--color-primary, #2148c0);
+  color: var(--color-white, #fff);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-primary-light, #264eca);
+}
+
+button:disabled {
+  opacity: 0.54;
+  pointer-events: none;
+  background: var(--color-accent, #d7e0fb);
+  color: var(--color-primary, #2148c0);
+}
+
+/* Icon (uses background icon system from dashboard-login.css) */
+.btn-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 8px;
+  vertical-align: middle;
+}
