@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/unified-login-page-18843-18852/user_auth_frontend"
+}
