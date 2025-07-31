@@ -1,22 +1,24 @@
 <div class="dashboard-root">
+  <!-- Sidebar navigation -->
   <app-sidebar class="dashboard-sidebar"></app-sidebar>
   <main class="dashboard-main-content">
     <div class="dashboard-content-scroll">
-      <!-- Top stat cards row (4 side by side) -->
+      <!-- Top Row: Stat cards, one row, no wrapping until mobile -->
       <section class="dashboard-stat-section">
         <div class="dashboard-stat-card-list">
           <app-stat-card
             *ngFor="let c of statCards"
             [icon]="c.icon"
             [value]="c.value"
-            [label]="c.label"
-          ></app-stat-card>
+            [label]="c.label">
+          </app-stat-card>
         </div>
       </section>
-      <!-- Main widgets grid: sales graph left, right column has calendar and activity stacked -->
+
+      <!-- Main two-row grid: sales left, calendar/activity stack right -->
       <section class="dashboard-widgets-row">
-        <!-- Left col: Sales line graph (wide, col-8/2/3) -->
-        <div class="dashboard-bar-chart-card" style="padding-bottom: 10px;">
+        <!-- Left (col-8): Sales chart card (responsive fluid width) -->
+        <div class="dashboard-bar-chart-card">
           <header class="dashboard-section-title">
             <span class="material-icons section-title-icon">show_chart</span>
             Sales
@@ -27,11 +29,11 @@
             [legend]="barChartData.legend"
             [datasetLabel]="barChartData.datasetLabel"
             [height]="220"
-            [width]="420"
-          ></app-bar-chart>
+            [width]="420">
+          </app-bar-chart>
         </div>
-        <!-- Right col: calendar widget at top, activity/grouped chart below -->
-        <div class="dashboard-side-widget" style="gap: 26px;">
+        <!-- Right (col-4): Calendar above Activity chart, stacked, no stickiness -->
+        <div class="dashboard-side-widget">
           <div class="dashboard-side-card">
             <header class="dashboard-section-title">
               <span class="material-icons section-title-icon">calendar_today</span>
@@ -39,24 +41,24 @@
             </header>
             <app-calendar-widget></app-calendar-widget>
           </div>
-          <div class="dashboard-side-card" style="padding-top: 8px;">
+          <div class="dashboard-side-card">
             <header class="dashboard-section-title">
               <span class="material-icons section-title-icon">bar_chart</span>
               Activity
             </header>
-            <!-- Reuse Top States bar chart here for recent activity grouping if real data -->
             <app-top-states-bar-chart
               [topStatesData]="topStatesData"
               [metrics]="metrics"
               [metricLabels]="metricLabels"
               [colors]="metricColors"
               [height]="160"
-              [width]="340"
-            ></app-top-states-bar-chart>
+              [width]="340">
+            </app-top-states-bar-chart>
           </div>
         </div>
       </section>
-      <!-- Bottom: New Clients and Top States widgets, centered row (not sticky or duplicated) -->
+
+      <!-- Bottom: Centered widgets row, no duplicates/sticky -->
       <section class="dashboard-bottom-widgets-row">
         <div class="dashboard-bottom-widget clients-bottom-widget">
           <header class="dashboard-section-title">
@@ -68,8 +70,8 @@
               *ngFor="let user of users"
               [avatarUrl]="user.avatarUrl"
               [name]="user.name"
-              [subtitle]="user.subtitle"
-            ></app-user-list-row>
+              [subtitle]="user.subtitle">
+            </app-user-list-row>
           </div>
         </div>
         <div class="dashboard-bottom-widget top-states-bottom-widget">
@@ -83,8 +85,8 @@
             [metricLabels]="metricLabels"
             [colors]="metricColors"
             [height]="240"
-            [width]="480"
-          ></app-top-states-bar-chart>
+            [width]="480">
+          </app-top-states-bar-chart>
         </div>
       </section>
     </div>
