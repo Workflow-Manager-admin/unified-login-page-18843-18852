@@ -60,16 +60,34 @@
         </div>
       </section>
     </div>
-    <!-- Bottom dashboard widget: Top States horizontal bar chart, after main widgets -->
-    <section class="dashboard-widgets-row" style="margin-top: 40px;">
-      <div class="dashboard-widget dashboard-bar-chart-card" style="padding:0; min-width:340px;">
+    <!-- Bottom dashboard widgets: New Clients and Top States side by side, centered -->
+    <section class="dashboard-bottom-widgets-row">
+      <div class="dashboard-bottom-widget clients-bottom-widget">
+        <header class="dashboard-section-title">
+          <span class="material-icons section-title-icon">person_add</span>
+          New Clients
+        </header>
+        <div class="dashboard-user-list-section">
+          <app-user-list-row
+            *ngFor="let user of users"
+            [avatarUrl]="user.avatarUrl"
+            [name]="user.name"
+            [subtitle]="user.subtitle"
+          ></app-user-list-row>
+        </div>
+      </div>
+      <div class="dashboard-bottom-widget top-states-bottom-widget">
+        <header class="dashboard-section-title">
+          <span class="material-icons section-title-icon">bar_chart</span>
+          Top States
+        </header>
         <app-top-states-bar-chart
           [topStatesData]="topStatesData"
           [metrics]="metrics"
           [metricLabels]="metricLabels"
           [colors]="metricColors"
           [height]="240"
-          [width]="560"
+          [width]="480"
         ></app-top-states-bar-chart>
       </div>
     </section>
