@@ -115,7 +115,7 @@
 
 /* Each card in side widget */
 .dashboard-side-card {
-  background: var(--color-white, #fff);
+  background: rgba(13, 13, 13, 1);
   border-radius: 16px;
   box-shadow: 0 4px 14px 0 #19398d14, 0 2px 4px 0 #4471d914;
   padding: 22px 28px 28px 28px;

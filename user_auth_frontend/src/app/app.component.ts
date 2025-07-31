@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { BackgroundDecorComponent } from './background-decor/background-decor.component';
-import { LoginPageComponent } from './login-page.component';
-import { DashboardPageComponent } from './dashboard-page.component';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 /**
  * PUBLIC_INTERFACE
- * App root. Wraps the background and renders main login or dashboard page.
+ * App root. Wraps the background and renders routed page views.
  */
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BackgroundDecorComponent, LoginPageComponent, DashboardPageComponent],
+  imports: [BackgroundDecorComponent, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

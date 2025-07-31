@@ -9,7 +9,7 @@
     <ng-container *ngFor="let m of metrics; let idx = index">
       <span class="top-states-legend-item">
         <span class="legend-dot" [ngStyle]="{'background': colors[idx % colors.length]}"></span>
-        <span class="legend-text">{{ metricLabels?.[m] || m }}</span>
+        <span class="legend-text">{{ metricLabels[m] || m }}</span>
       </span>
     </ng-container>
   </div>

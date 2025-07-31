@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
+import { CommonModule, NgIf, NgFor } from '@angular/common';
 
 // PUBLIC_INTERFACE
 @Component({
@@ -7,7 +7,7 @@ import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
   standalone: true,
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css'],
-  imports: [CommonModule, NgIf, NgFor, NgClass]
+  imports: [CommonModule, NgIf, NgFor]
 })
 /**
  * PUBLIC_INTERFACE

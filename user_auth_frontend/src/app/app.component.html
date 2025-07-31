@@ -1,4 +1,11 @@
 <!-- Reusable decorative dashboard background shapes -->
 <app-background-decor></app-background-decor>
-<!-- Change demo to show dashboard page instead of login page -->
-<app-dashboard-page></app-dashboard-page>
+
+<!-- Temporary navigation - for demo/testing: Show navigation links -->
+<nav style="position: absolute; right: 2vw; top: 2vw; z-index: 2; font-family: inherit">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" style="margin-right: 12px; color: #1976d2; font-weight: 500;">Login</a>
+  <a routerLink="/dashboard" routerLinkActive="active" style="color: #1976d2; font-weight: 500;">Dashboard</a>
+</nav>
+
+<!-- Main content is routed -->
+<router-outlet></router-outlet>
