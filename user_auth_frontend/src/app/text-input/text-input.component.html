@@ -1,0 +1,27 @@
+<div class="app-input-root">
+  <label *ngIf="label" class="input-label">{{ label }}</label>
+  <div class="input-group" [class.input-error]="showError">
+    <span *ngIf="icon" class="input-icon" [ngClass]="icon"></span>
+    <input
+      #inputField
+      class="input-field"
+      [type]="inputType"
+      [attr.placeholder]="label"
+      [value]="value"
+      (input)="handleInput($event)"
+      (focus)="handleFocus()"
+      (blur)="handleBlur()"
+      [attr.aria-invalid]="showError"
+      [attr.aria-label]="label"
+      autocomplete="on"
+      [formControl]="formControl"
+    />
+    <button *ngIf="type==='password'" type="button" class="toggle-password-btn" (click)="togglePasswordVisibility()" [attr.aria-pressed]="showPassword" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+      <span *ngIf="showPassword" class="toggle-icon" aria-hidden="true">&#128065;</span>
+      <span *ngIf="!showPassword" class="toggle-icon" aria-hidden="true">&#128586;</span>
+    </button>
+  </div>
+  <div *ngIf="showError && errorMessage" class="input-error-text">
+    {{errorMessage}}
+  </div>
+</div>

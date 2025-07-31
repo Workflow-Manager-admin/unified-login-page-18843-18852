@@ -1,0 +1,89 @@
+/* Uses Figma tokens from :root and .input-group in assets/dashboard-login.css */
+:host { display: block; width: 100%; }
+.app-input-root {
+  margin: 0 0 8px 0;
+  width: 100%;
+}
+.input-label {
+  display: block;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-size: var(--font-size-label, 14px);
+  font-weight: var(--font-weight-label, 300);
+  color: var(--color-white, #fff);
+  margin-bottom: 0.18em;
+  padding-left: 2px;
+  letter-spacing: 0.02em;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: var(--input-gap, 12px);
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-white, #fff);
+  border-radius: var(--border-radius, 4px);
+  height: var(--input-height, 45px);
+  padding: 0 1em;
+  box-sizing: border-box;
+  position: relative;
+  transition: box-shadow 0.16s, border-color 0.12s;
+}
+.input-group:focus-within {
+  border-color: var(--color-primary, #2148c0);
+  box-shadow: 0 2px 7px 0 #2148c025;
+}
+.input-icon {
+  display: inline-block;
+  width: 20px; height: 20px;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.input-field {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-size: var(--font-size-label, 14px);
+  font-weight: var(--font-weight-label, 300);
+  color: var(--color-primary, #2148c0);
+  padding: 0;
+  text-align: left;
+}
+.toggle-password-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-primary, #2148c0);
+  font-size: 1.2em;
+  margin-left: 0.1em;
+  padding: 0;
+  height: 21px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-icon {
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+.input-error {
+  border: 1.3px solid #cc4343;
+}
+.input-error-text {
+  color: #ffe5e5;
+  background: #cc4343;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-weight: 400;
+  margin-top: 5px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 6px 0 #cc434354;
+  max-width: 96%;
+}
