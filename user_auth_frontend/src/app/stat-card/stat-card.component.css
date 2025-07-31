@@ -1,0 +1,88 @@
+/* Card root: Figma/Material Design inspired - elevation, white, subtle shadow, radius, spacing */
+.stat-card-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 140px;
+  min-height: 140px;
+  width: 164px;
+  height: 148px;
+  background: var(--color-white, #fff);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px 0 #19398d17, 0 2px 4px 0 #4471d917;
+  padding: 20px 18px 18px 18px;
+  margin: 6px;
+  transition: box-shadow 0.17s, background 0.16s;
+  user-select: none;
+}
+
+.stat-card-root:focus,
+.stat-card-root:hover {
+  box-shadow: 0 8px 18px 0 #19398d25, 0 6px 10px 0 #264eca18;
+  background: #f7f9fc;
+  outline: none;
+}
+
+/* Icon area */
+.stat-card-icon-area {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--color-accent, #e4ecfe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+
+.stat-card-icon {
+  font-family: 'Material Icons';
+  font-size: 28px;
+  color: var(--color-primary, #2148c0);
+  line-height: 1;
+  width: 28px; height: 28px;
+  vertical-align: middle;
+  /* No shadow for icon */
+}
+
+/* Main value (metric) */
+.stat-card-value {
+  color: #23254c;
+  font-size: 2.32rem;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-weight: 700;
+  margin-bottom: 7px;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+  text-align: center;
+  line-height: 1.15;
+  min-height: 34px;
+}
+
+/* Label/subtitle */
+.stat-card-label {
+  color: #678ab5;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-size: 1.03rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 2px;
+  margin-top: 0px;
+}
+
+@media (max-width: 540px) {
+  .stat-card-root {
+    min-width: 110px;
+    width: 99vw;
+    height: auto;
+    padding: 14px 6vw 12px 6vw;
+  }
+  .stat-card-value {
+    font-size: 1.4rem;
+  }
+  .stat-card-label {
+    font-size: 0.97rem;
+  }
+}
