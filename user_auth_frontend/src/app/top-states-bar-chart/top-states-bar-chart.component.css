@@ -1,0 +1,81 @@
+.top-states-card-root {
+  background: var(--color-card, #232b36);
+  border-radius: 16px;
+  box-shadow: var(--color-shadow, 0 4px 14px 0 #080e1775), 0 2px 8px #1a283726;
+  padding: 28px 26px 20px 26px;
+  margin-bottom: 10px;
+  width: 100%;
+  min-width: 260px;
+  max-width: 920px;
+  user-select: none;
+}
+
+.top-states-title-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 1.43em;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-weight: 600;
+  color: #e3e7ee;
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+}
+.chart-header-icon {
+  font-size: 28px;
+  color: #8ba3e9;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.top-states-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  margin-bottom: 9px;
+}
+
+.top-states-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 1em;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-weight: 500;
+  color: #b5c4e2;
+  letter-spacing: 0.01em;
+}
+.legend-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  outline: 1.5px solid #232b3622;
+  margin-right: 2px;
+}
+.legend-text {
+  opacity: 0.95;
+}
+
+/* Horizontal grouped bar chart container */
+.top-states-canvas-wrapper {
+  width: 100%;
+  height: 240px;
+  max-width: 97vw;
+  overflow-x: auto;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+/* Responsive card sizing */
+@media (max-width: 700px) {
+  .top-states-card-root {
+    padding: 10px 2vw 8vw 2vw;
+    min-width: 0;
+    max-width: none;
+  }
+  .top-states-canvas-wrapper {
+    height: 150px;
+  }
+}

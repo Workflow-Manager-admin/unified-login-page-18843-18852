@@ -1,0 +1,20 @@
+<!-- Dashboard card container for the Top States chart -->
+<div class="top-states-card-root">
+  <header class="top-states-title-row">
+    <span class="material-icons chart-header-icon" aria-hidden="true">bar_chart</span>
+    Top States
+  </header>
+  <!-- Metric legend row for group colors, styled per Material/Figma -->
+  <div class="top-states-legend-row" *ngIf="metrics.length > 1">
+    <ng-container *ngFor="let m of metrics; let idx = index">
+      <span class="top-states-legend-item">
+        <span class="legend-dot" [ngStyle]="{'background': colors[idx % colors.length]}"></span>
+        <span class="legend-text">{{ metricLabels?.[m] || m }}</span>
+      </span>
+    </ng-container>
+  </div>
+  <!-- Chart canvas (horizontal grouped bars) -->
+  <div class="top-states-canvas-wrapper">
+    <canvas #canvas [attr.width]="width" [attr.height]="height" aria-label="Top States Chart"></canvas>
+  </div>
+</div>

@@ -60,5 +60,18 @@
         </div>
       </section>
     </div>
+    <!-- Bottom dashboard widget: Top States horizontal bar chart, after main widgets -->
+    <section class="dashboard-widgets-row" style="margin-top: 40px;">
+      <div class="dashboard-widget dashboard-bar-chart-card" style="padding:0; min-width:340px;">
+        <app-top-states-bar-chart
+          [topStatesData]="topStatesData"
+          [metrics]="metrics"
+          [metricLabels]="metricLabels"
+          [colors]="metricColors"
+          [height]="240"
+          [width]="560"
+        ></app-top-states-bar-chart>
+      </div>
+    </section>
   </main>
 </div>

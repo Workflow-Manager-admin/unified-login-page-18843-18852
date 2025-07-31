@@ -5,6 +5,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { CalendarWidgetComponent } from './calendar-widget/calendar-widget.component';
 import { UserListRowComponent } from './user-list-row/user-list-row.component';
 import { DividerComponent } from './divider/divider.component';
+import { TopStatesBarChartComponent } from './top-states-bar-chart/top-states-bar-chart.component';
 
 /**
  * PUBLIC_INTERFACE
@@ -21,6 +22,7 @@ import { DividerComponent } from './divider/divider.component';
     CalendarWidgetComponent,
     UserListRowComponent,
     DividerComponent,
+    TopStatesBarChartComponent,
   ],
   templateUrl: './dashboard-page.component.html',
   styleUrls: ['./dashboard-page.component.css'],
@@ -43,6 +45,18 @@ export class DashboardPageComponent {
     ],
     datasetLabel: 'Sales',
   };
+
+  // Mock data for "Top States" widget: state name, metrics
+  topStatesData = [
+    { state: 'California', metrics: { clients: 35 } },
+    { state: 'Texas', metrics: { clients: 27 } },
+    { state: 'Florida', metrics: { clients: 20 } },
+    { state: 'New York', metrics: { clients: 15 } },
+    { state: 'Illinois', metrics: { clients: 12 } }
+  ];
+  metrics = ['clients'];
+  metricLabels = { clients: 'Clients' };
+  metricColors = ['#8ba3e9'];
 
   // Sample users for "New Clients/Activity" section
   users = [
