@@ -34,12 +34,12 @@ export class DashboardPageComponent {
     { icon: 'assignment_turned_in', value: 32, label: 'Completed Tasks' },
   ];
 
-  // Bar chart sample
+  // Sales line chart sample (chart.js/Material accent colors used for legend + line)
   barChartData = {
     data: [14, 78, 53, 32, 90, 44, 67],
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     legend: [
-      { icon: 'show_chart', label: 'Sales', color: '#2148c0' }
+      { icon: 'show_chart', label: 'Sales', color: '#8ba3e9' }
     ],
     datasetLabel: 'Sales',
   };

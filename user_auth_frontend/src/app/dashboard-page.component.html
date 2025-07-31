@@ -16,11 +16,12 @@
       <!-- Main widgets row (bar chart + right side widgets) -->
       <section class="dashboard-widgets-row">
         <!-- Main area: Bar chart card -->
-        <div class="dashboard-widget dashboard-bar-chart-card">
+        <div class="dashboard-widget dashboard-bar-chart-card" style="padding-bottom: 10px;">
           <header class="dashboard-section-title">
             <span class="material-icons section-title-icon">show_chart</span>
             Sales
           </header>
+          <!-- Uses Chart.js line chart with Material Accent line -->
           <app-bar-chart
             [data]="barChartData.data"
             [labels]="barChartData.labels"
