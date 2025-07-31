@@ -2,7 +2,7 @@
   <app-sidebar class="dashboard-sidebar"></app-sidebar>
   <main class="dashboard-main-content">
     <div class="dashboard-content-scroll">
-      <!-- Top-aligned horizontal row of 4 stat cards above all main widgets -->
+      <!-- Top stat cards row (4 side by side) -->
       <section class="dashboard-stat-section">
         <div class="dashboard-stat-card-list">
           <app-stat-card
@@ -13,9 +13,9 @@
           ></app-stat-card>
         </div>
       </section>
-      <!-- Main widgets row (bar chart + right side widgets) -->
+      <!-- Main widgets grid: sales graph left, right column has calendar and activity stacked -->
       <section class="dashboard-widgets-row">
-        <!-- Main area: Sales Bar chart, unwrapped from redundant card container -->
+        <!-- Left col: Sales line graph (wide, col-8/2/3) -->
         <div class="dashboard-bar-chart-card" style="padding-bottom: 10px;">
           <header class="dashboard-section-title">
             <span class="material-icons section-title-icon">show_chart</span>
@@ -30,8 +30,8 @@
             [width]="420"
           ></app-bar-chart>
         </div>
-        <!-- Right column: only Calendar in its card, no embedded New Clients -->
-        <div class="dashboard-side-widget">
+        <!-- Right col: calendar widget at top, activity/grouped chart below -->
+        <div class="dashboard-side-widget" style="gap: 26px;">
           <div class="dashboard-side-card">
             <header class="dashboard-section-title">
               <span class="material-icons section-title-icon">calendar_today</span>
@@ -39,39 +39,54 @@
             </header>
             <app-calendar-widget></app-calendar-widget>
           </div>
+          <div class="dashboard-side-card" style="padding-top: 8px;">
+            <header class="dashboard-section-title">
+              <span class="material-icons section-title-icon">bar_chart</span>
+              Activity
+            </header>
+            <!-- Reuse Top States bar chart here for recent activity grouping if real data -->
+            <app-top-states-bar-chart
+              [topStatesData]="topStatesData"
+              [metrics]="metrics"
+              [metricLabels]="metricLabels"
+              [colors]="metricColors"
+              [height]="160"
+              [width]="340"
+            ></app-top-states-bar-chart>
+          </div>
+        </div>
+      </section>
+      <!-- Bottom: New Clients and Top States widgets, centered row (not sticky or duplicated) -->
+      <section class="dashboard-bottom-widgets-row">
+        <div class="dashboard-bottom-widget clients-bottom-widget">
+          <header class="dashboard-section-title">
+            <span class="material-icons section-title-icon">person_add</span>
+            New Clients
+          </header>
+          <div class="dashboard-user-list-section">
+            <app-user-list-row
+              *ngFor="let user of users"
+              [avatarUrl]="user.avatarUrl"
+              [name]="user.name"
+              [subtitle]="user.subtitle"
+            ></app-user-list-row>
+          </div>
+        </div>
+        <div class="dashboard-bottom-widget top-states-bottom-widget">
+          <header class="dashboard-section-title">
+            <span class="material-icons section-title-icon">bar_chart</span>
+            Top States
+          </header>
+          <app-top-states-bar-chart
+            [topStatesData]="topStatesData"
+            [metrics]="metrics"
+            [metricLabels]="metricLabels"
+            [colors]="metricColors"
+            [height]="240"
+            [width]="480"
+          ></app-top-states-bar-chart>
         </div>
       </section>
     </div>
-    <!-- Bottom dashboard widgets: New Clients and Top States side by side, centered -->
-    <section class="dashboard-bottom-widgets-row">
-      <div class="dashboard-bottom-widget clients-bottom-widget">
-        <header class="dashboard-section-title">
-          <span class="material-icons section-title-icon">person_add</span>
-          New Clients
-        </header>
-        <div class="dashboard-user-list-section">
-          <app-user-list-row
-            *ngFor="let user of users"
-            [avatarUrl]="user.avatarUrl"
-            [name]="user.name"
-            [subtitle]="user.subtitle"
-          ></app-user-list-row>
-        </div>
-      </div>
-      <div class="dashboard-bottom-widget top-states-bottom-widget">
-        <header class="dashboard-section-title">
-          <span class="material-icons section-title-icon">bar_chart</span>
-          Top States
-        </header>
-        <app-top-states-bar-chart
-          [topStatesData]="topStatesData"
-          [metrics]="metrics"
-          [metricLabels]="metricLabels"
-          [colors]="metricColors"
-          [height]="240"
-          [width]="480"
-        ></app-top-states-bar-chart>
-      </div>
-    </section>
   </main>
 </div>
