@@ -1,0 +1,32 @@
+/* Style matches .forgot-link in assets/dashboard-login.css and Figma spec */
+.forgot-link {
+  display: block;
+  margin: 12px auto 0 0;
+  color: var(--color-white, #fff);
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  font-size: var(--font-size-button, 16px);
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.87;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  transition: opacity 0.12s, color 0.16s;
+  user-select: none;
+}
+.forgot-link:hover:not(.disabled), .forgot-link:focus:not(.disabled) {
+  opacity: 1;
+  color: #f7f7ff;
+  text-decoration-thickness: 2px;
+}
+.forgot-link.disabled,
+.forgot-link[aria-disabled="true"],
+.forgot-link[disabled] {
+  opacity: 0.47;
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #e7e7ef !important;
+}

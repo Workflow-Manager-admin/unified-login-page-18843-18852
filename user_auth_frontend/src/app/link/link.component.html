@@ -1,0 +1,42 @@
+<!-- Button action mode -->
+<a
+  *ngIf="!routerLink && !href && action"
+  class="forgot-link"
+  href="#"
+  role="button"
+  [attr.aria-disabled]="disabled"
+  tabindex="0"
+  [ngClass]="{disabled: disabled}"
+  (click)="handleClick($event)"
+  (keydown)="onKeydown($event)"
+>
+  {{ text }}
+</a>
+
+<!-- Navigation: [routerLink] mode -->
+<a
+  *ngIf="routerLink && !action"
+  class="forgot-link"
+  [routerLink]="routerLink"
+  [attr.tabindex]="disabled ? -1 : 0"
+  [attr.aria-disabled]="disabled"
+  [ngClass]="{disabled: disabled}"
+  (click)="handleClick($event)"
+>
+  {{ text }}
+</a>
+
+<!-- Navigation: plain href mode (external or standard navigation) -->
+<a
+  *ngIf="!routerLink && href && !action"
+  class="forgot-link"
+  [attr.href]="href"
+  [attr.tabindex]="disabled ? -1 : 0"
+  [attr.aria-disabled]="disabled"
+  [ngClass]="{disabled: disabled}"
+  (click)="handleClick($event)"
+  [attr.target]="href && href.startsWith('http') ? '_blank' : null"
+  [attr.rel]="href && href.startsWith('http') ? 'noopener noreferrer' : null"
+>
+  {{ text }}
+</a>
