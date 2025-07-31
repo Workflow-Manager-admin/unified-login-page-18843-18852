@@ -1,0 +1,38 @@
+<div class="calendar-widget-root" role="group" aria-label="Calendar">
+  <!-- Month/Year header with nav controls -->
+  <div class="calendar-widget-header">
+    <button class="nav-btn" type="button" (click)="prevMonth()" aria-label="Previous month">
+      <span class="material-icons nav-icon">chevron_left</span>
+    </button>
+    <span class="calendar-widget-month-label" aria-live="polite">
+      {{ monthNames[currentMonth] }} {{ currentYear }}
+    </span>
+    <button class="nav-btn" type="button" (click)="nextMonth()" aria-label="Next month">
+      <span class="material-icons nav-icon">chevron_right</span>
+    </button>
+  </div>
+  <!-- Weekdays header -->
+  <div class="calendar-widget-weekdays-row">
+    <span class="calendar-widget-weekday" *ngFor="let wd of weekDays">{{ wd }}</span>
+  </div>
+  <!-- Calendar day grid (6x7) -->
+  <div class="calendar-widget-days-grid">
+    <ng-container *ngFor="let cell of daysGrid; let i = index">
+      <button
+        type="button"
+        [disabled]="!cell.inMonth"
+        class="calendar-widget-day"
+        [attr.aria-label]="cell.date ? (cell.date | date:'longDate') : ''"
+        [ngClass]="{
+          'other-month': !cell.inMonth,
+          'today': cell.isToday,
+          'selected': cell.isSelected
+        }"
+        (click)="onDayClick(cell)">
+        {{ cell.date?.getDate() }}
+      </button>
+      <!-- Row break after 7th, 14th, ... cell for styling only -->
+      <div *ngIf="(i+1)%7==0" class="calendar-widget-week-break"></div>
+    </ng-container>
+  </div>
+</div>
