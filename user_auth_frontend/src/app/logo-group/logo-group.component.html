@@ -1,0 +1,18 @@
+<div class="logo-group-root" [ngStyle]="{'--logo-main': logoColor || null}">
+  <ng-content></ng-content>
+  <ng-container *ngIf="showDefault">
+    <!-- Abstracted Figma logo-group as SVG for minimal/modern look -->
+    <svg width="120" height="78" viewBox="0 0 120 78" class="logo-svg-bg" aria-hidden="true">
+      <rect x="0" y="0" rx="16" ry="30" width="120" height="77" fill="var(--color-white,#fff)" fill-opacity="0.14"/>
+    </svg>
+    <svg width="27" height="36" viewBox="0 0 27 36" class="logo-svg-part1" style="position:absolute;top:12px;left:46px;" aria-hidden="true">
+      <ellipse cx="13.5" cy="18" rx="13.5" ry="18" fill="var(--color-white,#fff)" fill-opacity="0.29"/>
+    </svg>
+    <svg width="11" height="11" viewBox="0 0 11 11" class="logo-dot logo-dot1" style="position:absolute;top:54px;left:40px;" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="5.5" fill="var(--color-white,#fff)" fill-opacity="0.33"/>
+    </svg>
+    <svg width="11" height="11" viewBox="0 0 11 11" class="logo-dot logo-dot2" style="position:absolute;top:54px;left:69px;" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="5.5" fill="var(--color-white,#fff)" fill-opacity="0.33"/>
+    </svg>
+  </ng-container>
+</div>

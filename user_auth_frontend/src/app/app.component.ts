@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { LogoGroupComponent } from './logo-group/logo-group.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [LogoGroupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
