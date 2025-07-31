@@ -1,0 +1,21 @@
+<div class="user-list-row" tabindex="0" aria-label="{{name}}: {{subtitle || ''}}">
+  <img
+    class="user-list-row-avatar"
+    [src]="avatarUrl"
+    width="40"
+    height="40"
+    alt="{{name}}'s avatar"
+    loading="lazy"
+    *ngIf="avatarUrl"
+  />
+  <div class="user-list-row-texts">
+    <div class="user-list-row-name">{{ name }}</div>
+    <div class="user-list-row-subtitle" *ngIf="subtitle">{{ subtitle }}</div>
+  </div>
+  <button type="button"
+          class="user-list-row-action"
+          aria-label="More actions for {{name}}"
+          (click)="onActionClick($event)">
+    <span class="material-icons">more_vert</span>
+  </button>
+</div>

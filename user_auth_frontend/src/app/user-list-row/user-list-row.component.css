@@ -1,0 +1,78 @@
+.user-list-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 7px 6px 7px 0;
+  min-height: 48px;
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.14s;
+  outline: none;
+}
+.user-list-row:focus,
+.user-list-row:hover {
+  background: #f4f7fd;
+}
+
+.user-list-row-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ccd6f6;
+  box-shadow: 0 1.5px 7px #2148c026;
+  margin-left: 8px;
+}
+
+.user-list-row-texts {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.user-list-row-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #2148c0;
+  font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 1.1;
+}
+.user-list-row-subtitle {
+  font-size: 0.98em;
+  color: #678ab5;
+  font-weight: 500;
+  opacity: 0.93;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.user-list-row-action {
+  border: none;
+  background: transparent;
+  color: #868ca6;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.3em;
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.14s;
+  margin-right: 3px;
+}
+.user-list-row-action:focus,
+.user-list-row-action:hover {
+  background: #eaeeff;
+  color: #1a299e;
+}
+.material-icons {
+  font-size: 1.39em;
+  color: inherit;
+}
