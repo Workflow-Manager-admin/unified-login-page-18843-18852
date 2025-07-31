@@ -1,0 +1,7 @@
+<nav class="sidebar-menu" aria-label="Main menu">
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <app-sidebar-menu-item [label]="item.label" [icon]="item.icon" [active]="item.active"></app-sidebar-menu-item>
+    </li>
+  </ul>
+</nav>
