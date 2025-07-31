@@ -1,4 +1,4 @@
-<div class="user-list-row" tabindex="0" aria-label="{{name}}: {{subtitle || ''}}">
+<div class="user-list-row" tabindex="0" [attr.aria-label]="name + ': ' + (subtitle || '')">
   <img
     class="user-list-row-avatar"
     [src]="avatarUrl"
@@ -14,7 +14,7 @@
   </div>
   <button type="button"
           class="user-list-row-action"
-          aria-label="More actions for {{name}}"
+          [attr.aria-label]="'More actions for ' + name"
           (click)="onActionClick($event)">
     <span class="material-icons">more_vert</span>
   </button>

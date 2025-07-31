@@ -1,32 +1,16 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { NgFor, NgClass } from '@angular/common';
+import { CommonModule, NgFor, NgClass, DatePipe } from '@angular/common';
 
 /**
  * PUBLIC_INTERFACE
  * @summary
  * Material-styled standalone calendar widget,
  * with month/year navigation and clickable day cells.
- *
- * Inputs:
- *  - month: number (0-based, default: today)
- *  - year: number (4-digit, default: today)
- *  - selected: Date | undefined (day highlight; optional)
- *
- * Outputs:
- *  - daySelected: Emits Date when a day is clicked.
- *
- * Example usage:
- * <app-calendar-widget
- *    [month]="4"
- *    [year]="2024"
- *    [selected]="myDate"
- *    (daySelected)="onDayClick($event)">
- * </app-calendar-widget>
  */
 @Component({
   selector: 'app-calendar-widget',
   standalone: true,
-  imports: [NgFor, NgClass],
+  imports: [CommonModule, NgFor, NgClass, DatePipe],
   templateUrl: './calendar-widget.component.html',
   styleUrls: ['./calendar-widget.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

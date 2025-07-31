@@ -1,4 +1,4 @@
-<div class="stat-card-root" tabindex="0" aria-label="{{label}}: {{value}}">
+<div class="stat-card-root" tabindex="0" [attr.aria-label]="label + ': ' + value">
   <div class="stat-card-icon-area">
     <span class="material-icons stat-card-icon" aria-hidden="true">{{ icon }}</span>
   </div>

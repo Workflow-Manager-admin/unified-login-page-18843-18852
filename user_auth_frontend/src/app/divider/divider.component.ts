@@ -1,18 +1,15 @@
 import { Component, Input, HostBinding } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 /**
  * PUBLIC_INTERFACE
  * @summary
  * Minimal, modern horizontal divider component for section separation.
- * Supports optional spacing, color (defaults to dashboard border tone), and margin.
- * Usage:
- * <app-divider></app-divider>
- * <app-divider margin="xl"></app-divider>
- * <app-divider color="#e0e8fb"></app-divider>
  */
 @Component({
   selector: 'app-divider',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './divider.component.html',
   styleUrls: ['./divider.component.css'],
 })

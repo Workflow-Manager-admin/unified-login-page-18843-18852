@@ -1,0 +1,63 @@
+<div class="dashboard-root">
+  <app-sidebar class="dashboard-sidebar"></app-sidebar>
+  <main class="dashboard-main-content">
+    <div class="dashboard-content-scroll">
+      <!-- Stat cards: Top section -->
+      <section class="dashboard-stat-section">
+        <div class="dashboard-stat-card-list">
+          <app-stat-card
+            *ngFor="let c of statCards"
+            [icon]="c.icon"
+            [value]="c.value"
+            [label]="c.label"
+          ></app-stat-card>
+        </div>
+      </section>
+      <!-- Graphs and side widgets (Figma layout: wide middle + right) -->
+      <section class="dashboard-widgets-row">
+        <!-- Main vertical + bar chart -->
+        <div class="dashboard-widget dashboard-bar-chart-card">
+          <header class="dashboard-section-title">
+            <span class="material-icons section-title-icon">show_chart</span>
+            Sales
+          </header>
+          <app-bar-chart
+            [data]="barChartData.data"
+            [labels]="barChartData.labels"
+            [legend]="barChartData.legend"
+            [datasetLabel]="barChartData.datasetLabel"
+            [height]="220"
+            [width]="420"
+          ></app-bar-chart>
+        </div>
+        <!-- Right column: Calendar and Activity -->
+        <div class="dashboard-widget dashboard-side-widget">
+          <!-- Calendar Widget Card -->
+          <div class="dashboard-side-card">
+            <header class="dashboard-section-title">
+              <span class="material-icons section-title-icon">calendar_today</span>
+              Calendar
+            </header>
+            <app-calendar-widget></app-calendar-widget>
+          </div>
+          <app-divider margin="md"></app-divider>
+          <!-- New Clients / Activity List Card -->
+          <div class="dashboard-side-card">
+            <header class="dashboard-section-title">
+              <span class="material-icons section-title-icon">person_add</span>
+              New Clients
+            </header>
+            <div class="dashboard-user-list-section">
+              <app-user-list-row
+                *ngFor="let user of users"
+                [avatarUrl]="user.avatarUrl"
+                [name]="user.name"
+                [subtitle]="user.subtitle"
+              ></app-user-list-row>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

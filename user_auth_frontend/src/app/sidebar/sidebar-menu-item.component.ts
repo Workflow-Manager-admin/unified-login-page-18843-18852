@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 /** Sidebar menu item interface for menu structure */
 export interface SidebarMenuItem {
@@ -14,6 +15,7 @@ export interface SidebarMenuItem {
 @Component({
   selector: 'app-sidebar-menu-item',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './sidebar-menu-item.component.html',
   styleUrls: ['./sidebar-menu-item.component.css']
 })

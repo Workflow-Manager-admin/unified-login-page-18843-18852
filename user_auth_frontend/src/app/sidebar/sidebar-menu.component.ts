@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { SidebarMenuItemComponent, SidebarMenuItem } from './sidebar-menu-item.component';
 
 /**
@@ -8,7 +9,7 @@ import { SidebarMenuItemComponent, SidebarMenuItem } from './sidebar-menu-item.c
 @Component({
   selector: 'app-sidebar-menu',
   standalone: true,
-  imports: [SidebarMenuItemComponent],
+  imports: [CommonModule, SidebarMenuItemComponent],
   templateUrl: './sidebar-menu.component.html',
   styleUrls: ['./sidebar-menu.component.css']
 })
