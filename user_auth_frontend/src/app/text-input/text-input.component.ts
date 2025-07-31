@@ -1,5 +1,6 @@
 import { Component, Input, forwardRef, ViewChild, ElementRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgIf, NgClass, CommonModule } from '@angular/common';
 
 // PUBLIC_INTERFACE
 @Component({
@@ -14,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/f
     },
   ],
   standalone: true,
-  imports: []
+  imports: [NgIf, NgClass, CommonModule, ReactiveFormsModule]
 })
 /**
  * Reusable minimal text input with label, icon slot, error message, and password toggle.
@@ -70,8 +71,8 @@ export class TextInputComponent implements ControlValueAccessor {
   }
 
   // ControlValueAccessor
-  onChange = () => {};
-  onTouched = () => {};
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
   // PUBLIC_INTERFACE
   writeValue(val: string): void {
@@ -97,7 +98,7 @@ export class TextInputComponent implements ControlValueAccessor {
     const val = (event.target as HTMLInputElement).value;
     this.value = val;
     this.onChange(val);
-    if (this.formControl) this.formControl.setValue(val, { emitEvent: true });
+    // DO NOT set formControl.setValue here; let reactive forms flow handle this.
   }
   // PUBLIC_INTERFACE
   handleFocus() {

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgIf, NgClass } from '@angular/common';
+import { NgIf, NgClass, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 /**
  * PUBLIC_INTERFACE
@@ -17,7 +18,7 @@ import { NgIf, NgClass } from '@angular/common';
   standalone: true,
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.css'],
-  imports: [NgIf, NgClass]
+  imports: [NgIf, NgClass, CommonModule, RouterModule]
 })
 export class LinkComponent {
   /**

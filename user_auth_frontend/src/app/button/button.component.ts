@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgIf, NgClass } from '@angular/common';
 
 // PUBLIC_INTERFACE
 @Component({
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css'],
-  // No module import required as this is a standalone component
+  imports: [NgIf, NgClass],
 })
 /**
  * PUBLIC_INTERFACE

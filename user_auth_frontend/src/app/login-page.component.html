@@ -1,0 +1,40 @@
+<div class="app-login-main">
+  <app-form-container>
+    <app-logo-group></app-logo-group>
+    <!-- Show global submit error if present -->
+    <div *ngIf="submitError()" class="login-form-errors" role="alert">
+      {{ submitError() }}
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate autocomplete="on">
+      <!-- Email input -->
+      <app-text-input
+        label="Email"
+        icon="user-icon"
+        type="email"
+        [formControl]="loginForm.controls.email"
+      ></app-text-input>
+      <!-- Password input with toggle -->
+      <app-text-input
+        label="Password"
+        icon="lock-icon"
+        [type]="showPassword() ? 'text' : 'password'"
+        [formControl]="loginForm.controls.password"
+      >
+      </app-text-input>
+      <!-- Login button: disabled if submitting/loading -->
+      <app-button
+        text="Login"
+        color="primary"
+        [disabled]="loginForm.invalid || isSubmitting()"
+        (clicked)="onSubmit()"
+      ></app-button>
+      <!-- Forgot password link (action mode) -->
+      <app-link
+        text="Forgot password?"
+        [action]="true"
+        (clicked)="submitError.set('Forgot password? functionality not yet implemented.')"
+        [disabled]="isSubmitting()"
+      ></app-link>
+    </form>
+  </app-form-container>
+</div>
