@@ -3,13 +3,13 @@
   <div class="bar-chart-legend-row" *ngIf="legend?.length">
     <ng-container *ngFor="let item of legend">
       <span class="bar-chart-legend-item">
-        <span class="material-icons legend-icon" [ngStyle]="{'color': item.color || '#2148c0'}" aria-hidden="true">{{item.icon}}</span>
-        <span class="legend-label" [ngStyle]="{'color': item.color || '#678ab5'}">{{item.label}}</span>
+        <span class="material-icons legend-icon" [ngStyle]="{'color': item.color || '#8ba3e9'}" aria-hidden="true">{{item.icon}}</span>
+        <span class="legend-label" [ngStyle]="{'color': item.color || '#8ba3e9'}">{{item.label}}</span>
       </span>
     </ng-container>
   </div>
-  <!-- Chart.js canvas -->
+  <!-- Chart.js Line Chart canvas -->
   <div class="bar-chart-canvas-wrapper">
-    <canvas #barChartCanvas [attr.width]="width" [attr.height]="height" aria-label="Bar Chart"></canvas>
+    <canvas #barChartCanvas [attr.width]="width" [attr.height]="height" aria-label="Sales Line Chart"></canvas>
   </div>
 </div>

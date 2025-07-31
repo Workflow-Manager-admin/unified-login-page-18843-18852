@@ -12,29 +12,26 @@ import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
 /**
  * PUBLIC_INTERFACE
  * @summary
- * Reusable Bar Chart component using Chart.js, supporting Material icon legends and Figma-compliant dashboard theming.
- * 
+ * Reusable Line Chart component using Chart.js for sales, supporting Material icon legends and Figma/Material dashboard theming.
+ *
  * Inputs:
- *   - data: Numeric value array for each bar
- *   - labels: String labels for each bar (e.g. days of week, categories)
+ *   - data: Numeric value array for each point
+ *   - labels: String labels for each point (e.g. days of week)
  *   - legend: (Optional) Array of {icon: Material icon name, label: string, color: string}
  *   - datasetLabel: (Optional) for Chart.js dataset display
- *   - barColors: (Optional) array of color strings or single color for bars
  * Usage:
- * <app-bar-chart [data]="[14,78,53,32]" [labels]="['Mon','Tue','Wed','Thu']" 
- *   [legend]="[{icon: 'mail', label: 'Messages', color: '#2148c0'}]">
+ * <app-bar-chart [data]="[14,78,53,32]" [labels]="['Mon','Tue','Wed','Thu']"
+ *   [legend]="[{icon: 'show_chart', label: 'Sales', color: '#8ba3e9'}]">
  * </app-bar-chart>
  */
 export class BarChartComponent implements AfterViewInit, OnDestroy {
-  /** Data for bars (numeric, required) */
+  /** Data for line points (numeric, required) */
   @Input() data: number[] = [];
   /** X-axis labels (required) */
   @Input() labels: string[] = [];
   /** (Optional) Single label string for dataset */
   @Input() datasetLabel: string = '';
-  /** Bar colors (array or single color, optional) */
-  @Input() barColors: string | string[] = '#2148c0';
-  /** (Optional) Legends with material icon, label, and color */
+  /** (Optional) Material icon, label, color for legend */
   @Input() legend: { icon: string, label: string, color?: string }[] = [];
 
   /** (Optional) Height (px) for canvas */
@@ -44,23 +41,43 @@ export class BarChartComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('barChartCanvas') chartRef!: ElementRef<HTMLCanvasElement>;
 
-  private chart!: any; // will be Chart.js instance
+  private chart!: any; // Chart.js instance
 
   async ngAfterViewInit() {
-    // Dynamically import Chart.js to avoid SSR issues & for minimal bundle
+    // Dynamically import Chart.js to avoid SSR issues & minimal bundle
     const Chart = (await import('chart.js/auto')).default;
     const ctx = this.chartRef.nativeElement.getContext('2d');
+    // Use Material dark palette
+    const mainLineColor = '#8ba3e9'; // accent blue
+    const backgroundGradient = (() => {
+      if (ctx) {
+        const grad = ctx.createLinearGradient(0, 0, 0, this.height);
+        grad.addColorStop(0, 'rgba(139,163,233,0.27)');
+        grad.addColorStop(1, 'rgba(139,163,233,0.07)');
+        return grad;
+      }
+      return 'rgba(139,163,233,0.12)';
+    })();
+
     this.chart = new Chart(ctx!, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: this.labels,
         datasets: [{
           label: this.datasetLabel,
           data: this.data,
-          backgroundColor: Array.isArray(this.barColors)
-            ? this.barColors
-            : Array(this.data.length).fill(this.barColors),
-          borderRadius: 7
+          fill: true,
+          cubicInterpolationMode: 'monotone',
+          tension: 0.38,
+          pointRadius: 5,
+          pointBackgroundColor: mainLineColor,
+          borderColor: mainLineColor,
+          backgroundColor: backgroundGradient,
+          borderWidth: 3,
+          pointBorderColor: '#232b36',
+          pointHoverBorderColor: '#e3e7ee',
+          pointHoverBackgroundColor: '#e3e7ee',
+          pointHoverRadius: 8,
         }]
       },
       options: {
@@ -74,7 +91,8 @@ export class BarChartComponent implements AfterViewInit, OnDestroy {
               font: { family: 'Montserrat, Arial, sans-serif', size: 13, weight: 500 }
             },
             grid: {
-              color: '#262e38', display: false
+              color: '#262e38',
+              display: false
             }
           },
           y: {
@@ -84,17 +102,17 @@ export class BarChartComponent implements AfterViewInit, OnDestroy {
               font: { family: 'Montserrat, Arial, sans-serif', size: 12 }
             },
             grid: {
-              color: '#313846', // dark bluish gray grid
+              color: '#313846',
             }
           }
         },
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
-        animation: {
-          duration: 600
-        }
+        animation: { duration: 650 },
       }
     });
+    // Resize (responsive): set canvas to 100% width/height of container
+    this.chart.resize();
   }
 
   ngOnDestroy() {
