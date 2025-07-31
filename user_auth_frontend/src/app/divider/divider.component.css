@@ -1,0 +1,30 @@
+/* Divider base style */
+.divider-root {
+  display: flex;
+  width: 100%;
+}
+/* The divider line */
+.divider-line {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--divider-color, #e0e8fb);
+  margin: 0;
+  min-height: 0; min-width: 0;
+  background: none;
+  pointer-events: none;
+  opacity: 0.82;
+  transition: border-color 0.19s;
+}
+
+/* Margin presets (vertical spacing) */
+.margin-none .divider-line { margin: 0; }
+.margin-sm   .divider-line { margin: 8px 0; }
+.margin-md   .divider-line { margin: 16px 0; }
+.margin-lg   .divider-line { margin: 28px 0; }
+.margin-xl   .divider-line { margin: 40px 0; }
+
+/* Responsive: Ensure looks good in cards, lists, sidebars */
+@media (max-width: 600px) {
+  .margin-lg .divider-line { margin: 18px 0; }
+  .margin-xl .divider-line { margin: 26px 0; }
+}
