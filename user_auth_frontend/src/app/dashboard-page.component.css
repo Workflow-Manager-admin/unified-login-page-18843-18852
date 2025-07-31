@@ -66,6 +66,13 @@
   width: 100%;
   margin-bottom: 0;
   min-height: 164px;
+  color: #e3e7ee;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-align: start;
 }
 
 @media (max-width: 1040px) {
