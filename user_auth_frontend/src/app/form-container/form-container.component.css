@@ -1,0 +1,34 @@
+/* Uses Figma tokens from :root (see: assets/dashboard-login.css) */
+:host.form-container-root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-width: 260px;
+  max-width: 360px;
+  width: var(--form-width, 300px);
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: var(--color-primary, #2148c0);
+  box-shadow: var(--box-shadow, 0 4px 4px 0px #00000022);
+  border-radius: var(--border-radius, 4px);
+  padding: 48px 32px 32px 32px;
+  z-index: 1;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-spacing, 20px);
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  :host.form-container-root {
+    min-width: 0;
+    max-width: 96vw;
+    width: 96vw;
+    padding: 28px 6vw;
+  }
+}
