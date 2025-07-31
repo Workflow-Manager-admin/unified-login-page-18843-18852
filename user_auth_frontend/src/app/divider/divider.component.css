@@ -7,12 +7,12 @@
 .divider-line {
   width: 100%;
   border: none;
-  border-bottom: 1.5px solid var(--divider-color, #e0e8fb);
+  border-bottom: 1.5px solid var(--divider-color, #282f3c);
   margin: 0;
   min-height: 0; min-width: 0;
   background: none;
   pointer-events: none;
-  opacity: 0.82;
+  opacity: 0.9;
   transition: border-color 0.19s;
 }
 

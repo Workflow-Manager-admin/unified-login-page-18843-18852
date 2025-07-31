@@ -70,21 +70,21 @@ export class BarChartComponent implements AfterViewInit, OnDestroy {
         scales: {
           x: {
             ticks: {
-              color: '#678ab5',
+              color: '#b5c4e2',
               font: { family: 'Montserrat, Arial, sans-serif', size: 13, weight: 500 }
             },
             grid: {
-              display: false
+              color: '#262e38', display: false
             }
           },
           y: {
             beginAtZero: true,
             ticks: {
-              color: '#b2bdda',
+              color: '#7e8ea6',
               font: { family: 'Montserrat, Arial, sans-serif', size: 12 }
             },
             grid: {
-              color: '#e0e8fb20'
+              color: '#313846', // dark bluish gray grid
             }
           }
         },

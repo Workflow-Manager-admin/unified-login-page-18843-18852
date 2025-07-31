@@ -3,8 +3,8 @@
   align-items: center;
   gap: 16px;
   padding: 32px 28px 18px 28px;
-  background: #f6f7faf8;
-  border-bottom: 1px solid #eee;
+  background: var(--color-surface-2, #333c49);
+  border-bottom: 1px solid var(--color-divider, #2d3641);
   min-height: 90px;
 }
 

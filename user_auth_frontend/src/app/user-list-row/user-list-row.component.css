@@ -6,12 +6,12 @@
   min-height: 48px;
   background: transparent;
   border-radius: 10px;
-  transition: background 0.14s;
+  transition: background 0.15s;
   outline: none;
 }
 .user-list-row:focus,
 .user-list-row:hover {
-  background: #f4f7fd;
+  background: #293040;
 }
 
 .user-list-row-avatar {
@@ -19,8 +19,8 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  background: #ccd6f6;
-  box-shadow: 0 1.5px 7px #2148c026;
+  background: #313e57;
+  box-shadow: 0 1.5px 6px #0d192523;
   margin-left: 8px;
 }
 
@@ -34,7 +34,7 @@
 .user-list-row-name {
   font-size: 1.1em;
   font-weight: 600;
-  color: #2148c0;
+  color: var(--color-white, #fff);
   font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -42,10 +42,10 @@
   line-height: 1.1;
 }
 .user-list-row-subtitle {
-  font-size: 0.98em;
-  color: #678ab5;
+  font-size: 0.97em;
+  color: var(--color-text-secondary, #7d8fb9);
   font-weight: 500;
-  opacity: 0.93;
+  opacity: 0.96;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -55,7 +55,7 @@
 .user-list-row-action {
   border: none;
   background: transparent;
-  color: #868ca6;
+  color: #96acdb;
   cursor: pointer;
   border-radius: 50%;
   font-size: 1.3em;
@@ -64,13 +64,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.14s;
+  transition: background 0.16s, color 0.12s;
   margin-right: 3px;
 }
 .user-list-row-action:focus,
 .user-list-row-action:hover {
-  background: #eaeeff;
-  color: #1a299e;
+  background: #19294a86;
+  color: #d5edff;
 }
 .material-icons {
   font-size: 1.39em;

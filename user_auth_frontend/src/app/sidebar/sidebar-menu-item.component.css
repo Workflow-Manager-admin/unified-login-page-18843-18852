@@ -4,7 +4,7 @@
   gap: 16px;
   padding: 12px 30px;
   font-size: 1.03em;
-  color: #37486b;
+  color: var(--color-text-secondary, #a6b0bc);
   background: none;
   border: none;
   outline: none;
@@ -19,17 +19,17 @@
 
 .sidebar-menu-item:hover,
 .sidebar-menu-item:focus {
-  background: #eaeeff;
-  color: #1a299e;
+  background: #2c3855;
+  color: #e3e7ee;
   text-decoration: none;
 }
 
 .sidebar-menu-item.active,
 .sidebar-menu-item.active:hover,
 .sidebar-menu-item.active:focus {
-  background: #264eca21;
-  color: #2148c0;
-  box-shadow: 0 1px 4px #264eca24;
+  background: #223165;
+  color: var(--color-white, #fff);
+  box-shadow: 0 1px 4px #19398d44;
 }
 
 .sidebar-menu-icon {

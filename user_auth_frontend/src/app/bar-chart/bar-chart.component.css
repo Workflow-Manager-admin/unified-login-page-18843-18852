@@ -4,9 +4,10 @@
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  background: var(--color-white, #fff);
+  background: var(--color-surface, #232b36);
+  color: var(--color-text, #e3e7ee);
   border-radius: 16px;
-  box-shadow: 0 4px 14px 0 #19398d12, 0 2px 4px 0 #4471d914;
+  box-shadow: var(--color-shadow, 0 4px 14px 0 #080e1775), 0 2px 8px #1a283726;
   padding: 22px 24px 18px 24px;
   margin: 6px 0;
   min-width: 220px;
@@ -15,13 +16,14 @@
 }
 .bar-chart-root:focus,
 .bar-chart-root:hover {
-  box-shadow: 0 8px 18px 0 #19398d25, 0 6px 10px 0 #2148c011;
+  box-shadow: 0 8px 18px 0 #19234035, 0 6px 14px 0 #2b4e7312;
 }
 
+/* Legend row and items */
 .bar-chart-legend-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   margin-bottom: 8px;
 }
 
@@ -31,6 +33,7 @@
   gap: 7px;
   font-size: 1.07em;
   font-family: var(--font-family-main, 'Montserrat', Arial, sans-serif);
+  color: var(--color-text-secondary, #a6b0bc);
 }
 
 .legend-icon {
@@ -38,12 +41,14 @@
   font-size: 23px;
   line-height: 1;
   vertical-align: middle;
+  color: var(--color-icon, #8ba3e9);
 }
 
 .legend-label {
   font-size: 1em;
   font-weight: 500;
   opacity: 0.93;
+  color: var(--color-text-secondary, #8ba3e9);
 }
 
 .bar-chart-canvas-wrapper {
